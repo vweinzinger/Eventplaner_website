@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  eventplaner_website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: spirit-of-hit_website-eventplaner_website
+    container_name: eventplaner_website
+    ports:
+      - "82:8080"   # Host-Port 82 → Container-Port 8080
+    restart: unless-stopped

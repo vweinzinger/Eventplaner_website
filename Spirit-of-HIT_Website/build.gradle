@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0' // Nutze die aktuelle Version
+    id 'io.spring.dependency-management' version '1.1.4' // Nutze die aktuelle Version
+}
+
+group = 'tgm.ac.at'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Es ist nicht nötig, die Version hier anzugeben,
+    // da `dependency-management` dies übernimmt.
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Test-Dependencies sind hier ebenfalls enthalten
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'tgm.ac.at.Main'
+    }
+}
