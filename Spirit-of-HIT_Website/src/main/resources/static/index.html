@@ -25,10 +25,20 @@
             line-height: 1.6;
         }
 
+        /* Container für 5% Rand auf jeder Seite */
         .container {
-            max-width: 1200px;
+            max-width: 90vw;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 0; /* Vertikaler Abstand */
+        }
+
+        /* Haupt-Inhaltsblöcke */
+        .content-box {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px var(--shadow);
+            padding: 30px;
+            margin: 20px auto;
         }
 
         /* Header Styling */
@@ -59,29 +69,14 @@
 
         /* Slider Intro Styling */
         .slider-intro {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px var(--shadow);
-            margin: 40px auto 20px auto; /* Mehr Abstand zum Header und Slider */
-            padding: 30px;
-            max-width: 1000px; /* Passend zum Slider */
             text-align: center;
         }
 
         /* Slider Styling */
-        .slider-section {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px var(--shadow);
-            margin: 20px auto 40px auto;
-            overflow: hidden;
-            max-width: 1000px; /* Breiter */
-        }
-
         .slider-container {
             position: relative;
             width: 100%;
-            height: 600px; /* Länger */
+            height: 600px;
             overflow: hidden;
         }
 
@@ -144,15 +139,6 @@
         }
 
         /* Text Content Styling */
-        .text-section {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 10px var(--shadow);
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 900px;
-        }
-
         .text-section p {
             font-size: 1.05em;
             color: var(--text-light);
@@ -177,7 +163,7 @@
                 font-size: 1.8em;
             }
             .slider-container {
-                height: 400px; /* Kleinere Höhe auf Mobilgeräten */
+                height: 400px;
             }
             .prev, .next {
                 padding: 12px;
@@ -188,7 +174,7 @@
                 font-size: 1em;
                 padding: 10px;
             }
-            .slider-intro, .slider-section, .text-section {
+            .content-box {
                 margin: 20px;
                 padding: 20px;
             }
@@ -202,11 +188,11 @@
     <h2 class="header-title">Spirit-of-HIT Eventplaner</h2>
 </div>
 
-<div class="slider-intro container">
+<div class="container content-box slider-intro">
     <p>Einige unserer schönsten Momente von den Spirit-of-HIT Days! Erlebe die Atmosphäre und das Engagement unserer Schüler und Lehrer.</p>
 </div>
 
-<div class="slider-section container">
+<div class="container content-box">
     <div class="slider-container">
         <div class="mySlides fade">
             <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
@@ -233,7 +219,7 @@
     </div>
 </div>
 
-<div class="text-section container">
+<div class="container content-box text-section">
     <p>Die Spirit-of-HIT Days sind besondere Veranstaltungstage, die von der HIT-Schule organisiert werden, um Schülern, Lehrern und Teilnehmern die Möglichkeit zu geben, Projekte, Aktivitäten und Innovationen hautnah zu erleben. Während dieser Tage steht Teamwork, Kreativität und das gemeinsame Lernen im Vordergrund.</p>
     <p>Die Teilnehmer haben die Chance, verschiedene Workshops, Vorträge und praktische Übungen zu besuchen. Dabei werden Themen aus Technik, IT, Wissenschaft, Sport und Kultur behandelt, sodass für jeden etwas dabei ist. Besonders im Fokus stehen praxisnahes Arbeiten und das Entdecken neuer Fähigkeiten.</p>
     <p>Ein wichtiger Bestandteil der Spirit-of-HIT Days ist der Zusammenhalt in der Gruppe. Die Schüler arbeiten in Teams an Aufgaben oder Projekten, lernen voneinander und entwickeln ihre sozialen Fähigkeiten weiter. Gleichzeitig gibt es Präsentationen, Wettbewerbe oder Challenges, bei denen die Ergebnisse gezeigt und gewürdigt werden.</p>
