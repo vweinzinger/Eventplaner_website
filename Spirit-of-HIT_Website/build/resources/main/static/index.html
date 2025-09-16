@@ -4,100 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spirit-of-HIT Eventplaner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-blue: #64B5F6; /* Hellblau */
+            --light-blue: #E3F2FD;   /* Sehr helles Blau */
+            --text-dark: #37474F;    /* Dunkelgrauer Text */
+            --text-light: #607D8B;   /* Heller grauer Text */
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --border-radius: 10px;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .header {
-            background-color: #ffffff;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header-logo {
-            height: 50px;
-            margin-right: 15px;
-        }
-
-        .header-title {
-            font-size: 1.8em;
-            color: #5C6BC0;
-            margin: 0;
-        }
-
-        .text-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: var(--light-blue);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        .slider-container {
-            max-width: 800px;
-            margin: 20px auto;
-            position: relative;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--white);
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            height: 60px;
+            margin-right: 20px;
+            object-fit: contain;
+        }
+
+        .header-title {
+            font-size: 2.2em;
+            color: var(--primary-blue);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Slider Intro Styling */
+        .slider-intro {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px var(--shadow);
+            margin: 40px auto 20px auto; /* Mehr Abstand zum Header und Slider */
+            padding: 30px;
+            max-width: 1000px; /* Passend zum Slider */
+            text-align: center;
+        }
+
+        /* Slider Styling */
+        .slider-section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px var(--shadow);
+            margin: 20px auto 40px auto;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px; /* Breiter */
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Länger */
+            overflow: hidden;
         }
 
         .mySlides {
             display: none;
             width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 1.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .mySlides.active {
+            opacity: 1;
         }
 
         .mySlides img {
             width: 100%;
-            height: auto;
-            border-radius: 6px;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Next & previous buttons */
         .prev, .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
             width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
+            padding: 18px;
+            margin-top: -30px;
+            color: var(--white);
             font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 0 5px 5px 0;
             user-select: none;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.4);
         }
 
         .next {
             right: 0;
-            border-radius: 3px 0 0 3px;
+            border-radius: 5px 0 0 5px;
         }
 
         .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.7);
         }
 
-        .text {
-            color: #f2f2f2;
-            font-size: 15px;
-            padding: 8px 12px;
+        .slide-caption {
+            color: var(--white);
+            font-size: 1.2em;
+            padding: 12px 20px;
             position: absolute;
-            bottom: 8px;
+            bottom: 0;
             width: 100%;
             text-align: center;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.6);
+            box-sizing: border-box;
+        }
+
+        /* Text Content Styling */
+        .text-section {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 10px var(--shadow);
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .text-section p {
+            font-size: 1.05em;
+            color: var(--text-light);
+            margin-bottom: 1em;
+        }
+
+        .text-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .header-title {
+                font-size: 1.8em;
+            }
+            .slider-container {
+                height: 400px; /* Kleinere Höhe auf Mobilgeräten */
+            }
+            .prev, .next {
+                padding: 12px;
+                font-size: 20px;
+                margin-top: -20px;
+            }
+            .slide-caption {
+                font-size: 1em;
+                padding: 10px;
+            }
+            .slider-intro, .slider-section, .text-section {
+                margin: 20px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -108,26 +202,44 @@
     <h2 class="header-title">Spirit-of-HIT Eventplaner</h2>
 </div>
 
-<div class="slider-container">
-    <div class="mySlides fade">
-        <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
-        <div class="text">Die Gruppe an der PH_Hagenberg.</div>
-    </div>
-
-    <div class="mySlides fade">
-        <img src="/images/REWE_Lego.jpg" alt="Schüler beim Lego-Projekt bei REWE">
-        <div class="text">Das Lego-Projekt bei REWE.</div>
-    </div>
-
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<div class="slider-intro container">
+    <p>Einige unserer schönsten Momente von den Spirit-of-HIT Days! Erlebe die Atmosphäre und das Engagement unserer Schüler und Lehrer.</p>
 </div>
-<div class="text-container">
+
+<div class="slider-section container">
+    <div class="slider-container">
+        <div class="mySlides fade">
+            <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
+            <div class="slide-caption">Die Gruppe an der PH_Hagenberg.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/images/REWE_Lego.jpg" alt="Schüler beim Lego-Projekt bei REWE">
+            <div class="slide-caption">Das Lego-Projekt bei REWE.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/images/SpirIT_of_HIT_31.jpg" alt="Vortrag während der Spirit-of-HIT Days">
+            <div class="slide-caption">Ein spannender Vortrag bei den Spirit-of-HIT Days.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/images/SpirIT_of_HIT_23.jpg" alt="Workshop mit vielen Teilnehmern">
+            <div class="slide-caption">Interaktiver Workshop mit motivierten Schülern.</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+</div>
+
+<div class="text-section container">
     <p>Die Spirit-of-HIT Days sind besondere Veranstaltungstage, die von der HIT-Schule organisiert werden, um Schülern, Lehrern und Teilnehmern die Möglichkeit zu geben, Projekte, Aktivitäten und Innovationen hautnah zu erleben. Während dieser Tage steht Teamwork, Kreativität und das gemeinsame Lernen im Vordergrund.</p>
     <p>Die Teilnehmer haben die Chance, verschiedene Workshops, Vorträge und praktische Übungen zu besuchen. Dabei werden Themen aus Technik, IT, Wissenschaft, Sport und Kultur behandelt, sodass für jeden etwas dabei ist. Besonders im Fokus stehen praxisnahes Arbeiten und das Entdecken neuer Fähigkeiten.</p>
     <p>Ein wichtiger Bestandteil der Spirit-of-HIT Days ist der Zusammenhalt in der Gruppe. Die Schüler arbeiten in Teams an Aufgaben oder Projekten, lernen voneinander und entwickeln ihre sozialen Fähigkeiten weiter. Gleichzeitig gibt es Präsentationen, Wettbewerbe oder Challenges, bei denen die Ergebnisse gezeigt und gewürdigt werden.</p>
     <p>Die Atmosphäre der Spirit-of-HIT Days ist geprägt von Motivation, Spaß und einem offenen Austausch. Ziel der Veranstaltung ist es, dass die Teilnehmer inspirierende Erfahrungen sammeln, Neues ausprobieren und ein Gefühl von Gemeinschaft erleben, das über den Schulalltag hinausgeht.</p>
 </div>
+
 <script>
     let slideIndex = 0;
     let autoSlideTimer;
@@ -140,22 +252,29 @@
 
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
+            slides[i].classList.remove('active');
         }
 
         slideIndex++;
-
         if (slideIndex > slides.length) {
             slideIndex = 1;
         }
 
         slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add('active');
 
         autoSlideTimer = setTimeout(showSlides, 10000);
     }
 
     function plusSlides(n) {
         clearTimeout(autoSlideTimer);
+
         let slides = document.getElementsByClassName("mySlides");
+
+        if (slides[slideIndex - 1]) {
+            slides[slideIndex - 1].classList.remove('active');
+        }
+
         slideIndex += n;
 
         if (slideIndex > slides.length) {
@@ -169,6 +288,7 @@
         }
 
         slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add('active');
 
         autoSlideTimer = setTimeout(showSlides, 10000);
     }
