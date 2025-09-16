@@ -3,33 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Erste Webseite</title>
+    <title>Spirit-of-HIT Eventplaner</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
-        .container {
-            background-color: #fff;
+
+        .header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header-title {
+            font-size: 1.8em;
+            color: #5C6BC0;
+            margin: 0;
+        }
+
+        .text-container {
+            max-width: 800px;
+            margin: 40px auto;
             padding: 20px;
+            background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: inline-block;
+            line-height: 1.6;
         }
-        h1 {
-            color: #333;
+
+        .slider-container {
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Hallo Welt!</h1>
-    <p>Dies ist eine Testseite, die mit Spring Boot ausgeliefert wird.</p>
-    <p>Wenn du diese Seite siehst, funktioniert alles!</p>
+<div class="header">
+    <img src="/images/Spirit-of-HIT_Eventplaner_Logo.png" alt="Spirit-of-HIT Logo" class="header-logo">
+    <h2 class="header-title">Spirit-of-HIT Eventplaner</h2>
 </div>
+
+<div class="slider-container">
+    <div class="mySlides fade">
+        <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
+        <div class="text">Die Gruppe an der PH_Hagenberg.</div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="/images/REWE_Lego.jpg" alt="Schüler beim Lego-Projekt bei REWE">
+        <div class="text">Das Lego-Projekt bei REWE.</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class="text-container">
+    <p>Die Spirit-of-HIT Days sind besondere Veranstaltungstage, die von der HIT-Schule organisiert werden, um Schülern, Lehrern und Teilnehmern die Möglichkeit zu geben, Projekte, Aktivitäten und Innovationen hautnah zu erleben. Während dieser Tage steht Teamwork, Kreativität und das gemeinsame Lernen im Vordergrund.</p>
+    <p>Die Teilnehmer haben die Chance, verschiedene Workshops, Vorträge und praktische Übungen zu besuchen. Dabei werden Themen aus Technik, IT, Wissenschaft, Sport und Kultur behandelt, sodass für jeden etwas dabei ist. Besonders im Fokus stehen praxisnahes Arbeiten und das Entdecken neuer Fähigkeiten.</p>
+    <p>Ein wichtiger Bestandteil der Spirit-of-HIT Days ist der Zusammenhalt in der Gruppe. Die Schüler arbeiten in Teams an Aufgaben oder Projekten, lernen voneinander und entwickeln ihre sozialen Fähigkeiten weiter. Gleichzeitig gibt es Präsentationen, Wettbewerbe oder Challenges, bei denen die Ergebnisse gezeigt und gewürdigt werden.</p>
+    <p>Die Atmosphäre der Spirit-of-HIT Days ist geprägt von Motivation, Spaß und einem offenen Austausch. Ziel der Veranstaltung ist es, dass die Teilnehmer inspirierende Erfahrungen sammeln, Neues ausprobieren und ein Gefühl von Gemeinschaft erleben, das über den Schulalltag hinausgeht.</p>
+</div>
+<script>
+    let slideIndex = 0;
+    let autoSlideTimer;
+
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        autoSlideTimer = setTimeout(showSlides, 10000);
+    }
+
+    function plusSlides(n) {
+        clearTimeout(autoSlideTimer);
+        let slides = document.getElementsByClassName("mySlides");
+        slideIndex += n;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        } else if (slideIndex < 1) {
+            slideIndex = slides.length;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        autoSlideTimer = setTimeout(showSlides, 10000);
+    }
+</script>
 
 </body>
 </html>
