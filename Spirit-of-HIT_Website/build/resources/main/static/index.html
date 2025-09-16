@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #64B5F6; /* Hellblau */
-            --light-blue: #E3F2FD;   /* Sehr helles Blau */
-            --text-dark: #37474F;    /* Dunkelgrauer Text */
-            --text-light: #607D8B;   /* Heller grauer Text */
+            --primary-blue: #64B5F6;
+            --light-blue: #E3F2FD;
+            --text-dark: #37474F;
+            --text-light: #607D8B;
             --white: #ffffff;
             --shadow: rgba(0, 0, 0, 0.1);
             --border-radius: 10px;
@@ -23,16 +23,21 @@
             background-color: var(--light-blue);
             color: var(--text-dark);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Container für 5% Rand auf jeder Seite */
         .container {
             max-width: 90vw;
             margin: 0 auto;
-            padding: 20px 0; /* Vertikaler Abstand */
+            padding: 20px 0;
         }
 
-        /* Haupt-Inhaltsblöcke */
+        main {
+            flex: 1;
+        }
+
         .content-box {
             background-color: var(--white);
             border-radius: var(--border-radius);
@@ -149,6 +154,41 @@
             margin-bottom: 0;
         }
 
+        /* Footer Styling */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 -4px 10px var(--shadow);
+        }
+
+        .footer-content {
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            padding: 0 10px; /* Abstand zwischen den Links */
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .header {
@@ -183,48 +223,59 @@
 </head>
 <body>
 
-<div class="header">
-    <img src="/images/Spirit-of-HIT_Eventplaner_Logo.png" alt="Spirit-of-HIT Logo" class="header-logo">
-    <h2 class="header-title">Spirit-of-HIT Eventplaner</h2>
-</div>
-
-<div class="container content-box slider-intro">
-    <p>Einige unserer schönsten Momente von den Spirit-of-HIT Days! Erlebe die Atmosphäre und das Engagement unserer Schüler und Lehrer.</p>
-</div>
-
-<div class="container content-box">
-    <div class="slider-container">
-        <div class="mySlides fade">
-            <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
-            <div class="slide-caption">Die Gruppe an der PH_Hagenberg.</div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="/images/REWE_Lego.jpg" alt="Schüler beim Lego-Projekt bei REWE">
-            <div class="slide-caption">Das Lego-Projekt bei REWE.</div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="/images/SpirIT_of_HIT_31.jpg" alt="Vortrag während der Spirit-of-HIT Days">
-            <div class="slide-caption">Ein spannender Vortrag bei den Spirit-of-HIT Days.</div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="/images/SpirIT_of_HIT_23.jpg" alt="Workshop mit vielen Teilnehmern">
-            <div class="slide-caption">Interaktiver Workshop mit motivierten Schülern.</div>
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+<main>
+    <div class="header">
+        <img src="/images/Spirit-of-HIT_Eventplaner_Logo.png" alt="Spirit-of-HIT Logo" class="header-logo">
+        <h2 class="header-title">Spirit-of-HIT Eventplaner</h2>
     </div>
-</div>
 
-<div class="container content-box text-section">
-    <p>Die Spirit-of-HIT Days sind besondere Veranstaltungstage, die von der HIT-Schule organisiert werden, um Schülern, Lehrern und Teilnehmern die Möglichkeit zu geben, Projekte, Aktivitäten und Innovationen hautnah zu erleben. Während dieser Tage steht Teamwork, Kreativität und das gemeinsame Lernen im Vordergrund.</p>
-    <p>Die Teilnehmer haben die Chance, verschiedene Workshops, Vorträge und praktische Übungen zu besuchen. Dabei werden Themen aus Technik, IT, Wissenschaft, Sport und Kultur behandelt, sodass für jeden etwas dabei ist. Besonders im Fokus stehen praxisnahes Arbeiten und das Entdecken neuer Fähigkeiten.</p>
-    <p>Ein wichtiger Bestandteil der Spirit-of-HIT Days ist der Zusammenhalt in der Gruppe. Die Schüler arbeiten in Teams an Aufgaben oder Projekten, lernen voneinander und entwickeln ihre sozialen Fähigkeiten weiter. Gleichzeitig gibt es Präsentationen, Wettbewerbe oder Challenges, bei denen die Ergebnisse gezeigt und gewürdigt werden.</p>
-    <p>Die Atmosphäre der Spirit-of-HIT Days ist geprägt von Motivation, Spaß und einem offenen Austausch. Ziel der Veranstaltung ist es, dass die Teilnehmer inspirierende Erfahrungen sammeln, Neues ausprobieren und ein Gefühl von Gemeinschaft erleben, das über den Schulalltag hinausgeht.</p>
-</div>
+    <div class="container content-box slider-intro">
+        <p>Einige unserer schönsten Momente von den Spirit-of-HIT Days! Erlebe die Atmosphäre und das Engagement unserer Schüler und Lehrer.</p>
+    </div>
+
+    <div class="container content-box">
+        <div class="slider-container">
+            <div class="mySlides fade">
+                <img src="/images/PH_Hagenberg.jpg" alt="Schüler bei einem Projekt in der PH_Hagenberg">
+                <div class="slide-caption">Die Gruppe an der PH_Hagenberg.</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="/images/REWE_Lego.jpg" alt="Schüler beim Lego-Projekt bei REWE">
+                <div class="slide-caption">Das Lego-Projekt bei REWE.</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="/images/SpirIT_of_HIT_31.jpg" alt="Vortrag während der Spirit-of-HIT Days">
+                <div class="slide-caption">Ein spannender Vortrag bei den Spirit-of-HIT Days.</div>
+            </div>
+
+            <div class="mySlides fade">
+                <img src="/images/SpirIT_of_HIT_23.jpg" alt="Workshop mit vielen Teilnehmern">
+                <div class="slide-caption">Interaktiver Workshop mit motivierten Schülern.</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <div class="container content-box text-section">
+        <p>Die Spirit-of-HIT Days sind besondere Veranstaltungstage, die von der HIT-Schule organisiert werden, um Schülern, Lehrern und Teilnehmern die Möglichkeit zu geben, Projekte, Aktivitäten und Innovationen hautnah zu erleben. Während dieser Tage steht Teamwork, Kreativität und das gemeinsame Lernen im Vordergrund.</p>
+        <p>Die Teilnehmer haben die Chance, verschiedene Workshops, Vorträge und praktische Übungen zu besuchen. Dabei werden Themen aus Technik, IT, Wissenschaft, Sport und Kultur behandelt, sodass für jeden etwas dabei ist. Besonders im Fokus stehen praxisnahes Arbeiten und das Entdecken neuer Fähigkeiten.</p>
+        <p>Ein wichtiger Bestandteil der Spirit-of-HIT Days ist der Zusammenhalt in der Gruppe. Die Schüler arbeiten in Teams an Aufgaben oder Projekten, lernen voneinander und entwickeln ihre sozialen Fähigkeiten weiter. Gleichzeitig gibt es Präsentationen, Wettbewerbe oder Challenges, bei denen die Ergebnisse gezeigt und gewürdigt werden.</p>
+        <p>Die Atmosphäre der Spirit-of-HIT Days ist geprägt von Motivation, Spaß und einem offenen Austausch. Ziel der Veranstaltung ist es, dass die Teilnehmer inspirierende Erfahrungen sammeln, Neues ausprobieren und ein Gefühl von Gemeinschaft erleben, das über den Schulalltag hinausgeht.</p>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Spirit-of-HIT Eventplaner. Alle Rechte vorbehalten.</p>
+        <p class="footer-links">
+            <a href="/impressum.html">Impressum</a> | <a href="/datenschutz.html">Datenschutz</a>
+        </p>
+    </div>
+</footer>
 
 <script>
     let slideIndex = 0;
